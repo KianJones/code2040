@@ -78,7 +78,7 @@ jdata4 = json.loads(question4.text)
 
 # use dateutil to add the seconds to the startdate
 start_date = dateutil.parser.parse(jdata4['result']['datestamp'])
-end_date = sdate + datetime.timedelta(seconds=jdata4['result']['interval'])
+end_date = start_date + datetime.timedelta(seconds=jdata4['result']['interval'])
 
 jbody4 = json.dumps({'token':token, 'datestamp':edate.isoformat()})
 answer4 = submit_answer("http://challenge.code2040.org/api/validatetime",jbody4)
